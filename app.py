@@ -34,7 +34,7 @@ def chinese(x, y):
 def french(x, y):
     for i in range(x, y):
         print(data[i]["name"]['french'])
-# Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
+
 choice = str(input("Would you like to see the names of the pokemon in English, Chinese, Japanese, or French? "))
 if choice == "English":
     english(0, len(data))
@@ -45,11 +45,13 @@ if choice == "Japanese":
 if choice == "French":
     french(0, len(data))
    
+# Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
+typemon = []
 type = str(input("What type of pokemon would you like to see? "))
 def element(x, y):
     for item in range(x, y):
-        if type == (data[item]["type"]):
-            print(data[item]["name"]['english'])
+            if type == (data[item]["type"]):
+                typemon.append(data[item]["name"]['english'])
 element(0, len(data))
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
