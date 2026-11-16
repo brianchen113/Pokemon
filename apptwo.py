@@ -52,6 +52,8 @@ def element(x, y):
     for item in range(x, y):
             if type == "Grass":
                 typemon.append(data[item]["name"]['english'])
+    any(item in data[item]["type"])
+    print(typemon)
 element(0, len(data))
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
