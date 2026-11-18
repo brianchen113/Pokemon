@@ -3,7 +3,6 @@ import json
 pokedex = open("./pokedex.json", encoding="utf8")
 ## create variable "data" that represents the enitre pokedex list
 data = json.load(pokedex)
-print(data[0])
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
 x = int
 x = 0
@@ -24,7 +23,7 @@ def french(x, y):
     for i in range(x, y):
         print(data[i]["name"]['french'])
 
-choice = str(input("Would you like to see the names of the pokemon in English, Chinese, Japanese, or French? "))
+choice = str(input("Would you like to see the names of the pokemon in English, Chinese, Japanese, or French? Capitalize the first letter only."))
 if choice == "English":
     english(0, len(data))
 if choice == "Chinese":
@@ -35,22 +34,29 @@ if choice == "French":
     french(0, len(data))
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
 typemon = []
-type = str(input("What type of pokemon would you like to see? "))
+type = str(input("What type of pokemon would you like to see? Capitalize the first letter only. "))
 def element(x, y):
     for item in range(x, y):
             if type in data[item]["type"]:
                 typemon.append(data[item]["name"]['english'])
+                print(data[item]["name"]['english'])
     if typemon == []:
         print("No pokemon was found. ")
-    else:
-        print(typemon)
+
 element(0, len(data))
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
-searchmon = []
-searching = str("Search up a pokemon you would like to see. ")
+searching = str(input("Search up a pokemon you would like to see. "))
 def search(x, y):
+    searchmon = int
+    searchmon = 0
     for look in range(x, y):
-        if searching 
+        if searching == data[look]["name"]['english']:
+            print(data[look]["name"]['english'])
+            searchmon += 1
+    if searchmon == 0:
+        print("No pokemon was found. ")
+
+search(0, len(data))
     
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
