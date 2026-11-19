@@ -23,37 +23,44 @@ def french(x, y):
     for i in range(x, y):
         print(data[i]["name"]['french'])
 
-choice = str(input("Would you like to see the names of the pokemon in English, Chinese, Japanese, or French? Capitalize the first letter only."))
-if choice == "English":
+choicemon = str(input("Would you like to see the names of the pokemon in English, Chinese, Japanese, or French? Capitalize the first letter only. "))
+if choicemon == "English":
     english(0, len(data))
-if choice == "Chinese":
+if choicemon == "Chinese":
     chinese(0, len(data))
-if choice == "Japanese":
+if choicemon == "Japanese":
     japanese(0, len(data))
-if choice == "French":
+if choicemon == "French":
     french(0, len(data))
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
-typemon = []
-type = str(input("What type of pokemon would you like to see? Capitalize the first letter only. "))
+nothing = []
+typemon = str(input("What type of pokemon would you like to see? Capitalize the first letter only. Type Please if you want to see the types. "))
 def element(x, y):
     for item in range(x, y):
-            if type in data[item]["type"]:
-                typemon.append(data[item]["name"]['english'])
+            if typemon in data[item]["type"]:
+                nothing.append(data[item]["name"]['english'])
                 print(data[item]["name"]['english'])
-    if typemon == []:
+    if nothing == []:
         print("No pokemon was found. ")
 
 element(0, len(data))
+if typemon == "Please":
+    print()
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
-search_input = input("Enter a Pokémon name fragment: ").strip()
-results = find_pokemon_by_name(search_input)
+import re
+listmon = []
+def findmon(termmon):
+    something = re.escape(termmon)
+    matches = [item["name"]["english"]
+            for item in data
+            if re.search(something, item["name"]["english"])]
+    return matches
 
+searchmon = input("Search the name or part of the name of pokemon you want to see. Capitalize the first letter only. ")
+results = findmon(searchmon)
 if results:
-    print(f"Found {len(results)} Pokémon(s):")
-    for p in results:
-        print(f"  - {p}")
+    print(results)
 else:
-    print("No Pokémon found matching your search term.")
-    
+    print("No pokemon was found. ")
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
