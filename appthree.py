@@ -6,8 +6,6 @@ moves = open("./moves.json", encoding="utf8")
 data = json.load(pokedex)
 tada = json.load(moves)
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
-x = int
-x = 0
 def english(x, y):
     for i in range(x, y):
         print(data[i]["name"]['english'])
