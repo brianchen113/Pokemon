@@ -38,7 +38,7 @@ if choicemon == "French":
 nothing = []
 nothing_again = []
 typemon = str(input("What type of pokemon would you like to see? Capitalize the first letter only. Type Please if you want to see the types. "))
-def element(x, y):
+def elememon(x, y):
     for item in range(x, y):
             if typemon in data[item]["type"]:
                 nothing.append(data[item]["name"]['english'])
@@ -46,7 +46,7 @@ def element(x, y):
     if nothing == []:
         print("No pokemon was found. ")
 
-def element_again(x, y):
+def elememon_again(x, y):
     for item in range(x, y):
             if typemon_again in data[item]["type"]:
                 nothing_again.append(data[item]["name"]['english'])
@@ -58,10 +58,10 @@ def element_again(x, y):
 if typemon == "Please":
     print("Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Dark, Fairy. ")
     typemon_again = str(input("What type of pokemon would you like to see? Capitalize the first letter only. "))
-    element_again(0, len(data)) 
+    elememon_again(0, len(data)) 
 
 
-element(0, len(data))
+elememon(0, len(data))
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 import re
 listmon = []
@@ -85,10 +85,8 @@ fullmon = str(input("Put the full name of a pokemon you would like to see the po
 def movemon(x, y):
     for item in range(x, y):
         if fullmon == data[item]["name"]['english']:
-            for i in range(15):
-                    print(data[item]['type'], tada[i]['type'])
+            for i in range(0, len(tada)):
                     if tada[i]['type'] in data[item]['type']:
                         namemon.append(tada[i]['ename'])
-            print(f"Because the type of {data[item]['name']['english']} is {data[item]['type']}, its possible moves are {namemon}")
-
+            print(f"Because the type of {data[item]['name']['english']} is {data[item]['type']}, its possible moves are {namemon}. ")
 movemon(0, len(data))
